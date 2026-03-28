@@ -1,0 +1,263 @@
+:root {
+    --bg: #f5f7fb;
+    --surface: #ffffff;
+    --ink: #1f2a37;
+    --muted: #5b6b7f;
+    --primary: #005f99;
+    --primary-strong: #004b78;
+    --danger: #b42318;
+    --success-bg: #eafaf1;
+    --warning-bg: #fff8e6;
+    --error-bg: #fdecec;
+    --border: #d7dfeb;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--ink);
+    background: linear-gradient(180deg, #eef3fb 0%, #f8fbff 40%, #f5f7fb 100%);
+}
+
+.container {
+    width: min(1100px, 92vw);
+    margin: 0 auto;
+}
+
+.site-header {
+    background: #0f1724;
+    border-bottom: 4px solid #1376b3;
+}
+
+.header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 0;
+}
+
+.brand {
+    color: #fff;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 1.25rem;
+}
+
+.admin-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.admin-nav a {
+    color: #dbe8f6;
+    text-decoration: none;
+    padding: 0.35rem 0.55rem;
+    border-radius: 0.4rem;
+}
+
+.admin-nav a:hover {
+    background: #1c3149;
+}
+
+.main-content {
+    padding: 1.25rem 0 2rem;
+}
+
+.panel {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 0.75rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 6px 16px rgba(13, 31, 58, 0.06);
+}
+
+h1,
+h2 {
+    margin-top: 0;
+}
+
+.filters,
+.vehicle-form,
+.inline-form {
+    display: grid;
+    gap: 0.8rem;
+}
+
+.filters {
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    align-items: end;
+}
+
+.vehicle-form {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+label {
+    display: grid;
+    gap: 0.35rem;
+    font-weight: 600;
+    color: var(--muted);
+}
+
+input,
+select,
+button,
+.button {
+    font: inherit;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 0.55rem 0.65rem;
+    border: 1px solid var(--border);
+    border-radius: 0.45rem;
+    background: #fff;
+}
+
+button,
+.button {
+    padding: 0.55rem 0.85rem;
+    border: 0;
+    border-radius: 0.45rem;
+    cursor: pointer;
+    background: var(--primary);
+    color: #fff;
+    text-decoration: none;
+    display: inline-block;
+}
+
+button:hover,
+.button:hover {
+    background: var(--primary-strong);
+}
+
+.danger {
+    background: var(--danger);
+}
+
+.danger:hover {
+    background: #8f1c13;
+}
+
+.secondary {
+    background: #5a6a80;
+}
+
+.secondary:hover {
+    background: #46566b;
+}
+
+.button-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.flash {
+    border-radius: 0.5rem;
+    padding: 0.7rem 0.9rem;
+    margin-bottom: 0.75rem;
+    border: 1px solid transparent;
+}
+
+.flash-success {
+    background: var(--success-bg);
+    border-color: #88d8a6;
+}
+
+.flash-warning {
+    background: var(--warning-bg);
+    border-color: #e7c55a;
+}
+
+.flash-error {
+    background: var(--error-bg);
+    border-color: #ef9a9a;
+}
+
+.table-wrap {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 650px;
+}
+
+th,
+td {
+    text-align: left;
+    padding: 0.6rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.manage-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 0.5rem;
+}
+
+.manage-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.55rem 0.65rem;
+    border: 1px solid var(--border);
+    border-radius: 0.5rem;
+}
+
+.site-footer {
+    border-top: 1px solid var(--border);
+    padding: 1.5rem 0;
+    color: var(--muted);
+    background: #fff;
+    text-align: center;
+}
+
+.footer-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.footer-nav a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.footer-nav a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 720px) {
+    .header-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .admin-nav {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    table {
+        min-width: 560px;
+    }
+}

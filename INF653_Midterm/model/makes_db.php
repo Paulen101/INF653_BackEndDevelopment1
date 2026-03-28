@@ -1,0 +1,41 @@
+<?php
+    function get_makes() {
+        global $db;
+        $query = 'SELECT * FROM makes ORDER BY make_name';
+        $statement = $db->prepare($query);
+        $statement->execute();
+        $makes = $statement->fetchAll();
+        $statement->closeCursor();
+        return $makes;
+    }
+
+    function get_make_name($make_id) {
+        if (!$make_id) return "All Makes";
+        global $db;
+        $query = 'SELECT * FROM makes WHERE make_id = :make_id';
+        $statement = $db->prepare($query);
+        $statement->bindValue(':make_id', $make_id);
+        $statement->execute();
+        $make = $statement->fetch();
+        $statement->closeCursor();
+        return $make['make_name'];
+    }
+
+    function add_make($make_name) {
+        global $db;
+        $query = 'INSERT INTO makes (make_name) VALUES (:make_name)';
+        $statement = $db->prepare($query);
+        $statement->bindValue(':make_name', $make_name);
+        $statement->execute();
+        $statement->closeCursor();
+    }
+
+    function delete_make($make_id) {
+        global $db;
+        $query = 'DELETE FROM makes WHERE make_id = :make_id';
+        $statement = $db->prepare($query);
+        $statement->bindValue(':make_id', $make_id);
+        $statement->execute();
+        $statement->closeCursor();
+    }
+?>
